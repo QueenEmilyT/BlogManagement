@@ -1,0 +1,85 @@
+﻿@page "/posts"
+@page "/{authorId:guid}/posts"
+@using Internship.Blazor.Components.SmcGrid
+@using Internship.Blazor.Pages.Posts.DTOs
+@using Internship.Blazor.Components.SmcGrid.Components.ToolbarMenus
+@using Internship.Blazor.Components
+@using Internship.Blazor.Pages.Posts.Operations.Creation
+@using Internship.Blazor.Pages.Posts.Operations.Edition
+@inherits Components.BaseComponent
+
+<SmcGrid TItem="PostGridDto"
+         Title="Blog Posts"
+         SearchPlaceholder="Search blog posts..."
+         Items="@_posts"
+         @bind-SelectedItems="_selectedPosts"
+         OnSelectedItemsChanged="SelectedApplicationsChanged"
+         OnCreateClick="CreatePost"
+         OnEditClick="EditPost"
+         OnDeleteClick="DeletePost"
+         OnRefresh="Refresh"
+         OnRowClick="RowClicked"
+         OnRowDoubleClick="RowDoubleClicked"
+         OnExportClick="ExportToExcel"
+         SearchPredicate="@(post => $"{post.Title} {post.IsArchived} {post.Slug}")">
+
+    <ColumnsTemplate>
+        <GridColumn Field="@nameof(PostGridDto.Id)" Title="ID" Width="300px"/>
+        <GridColumn Field="@nameof(PostGridDto.Title)" Title="Title"/>
+        <GridColumn Field="@nameof(PostGridDto.IsArchived)" Title="IsArchived"/>
+        <GridColumn Field="@nameof(PostGridDto.Slug)" Title="Slug"/>
+        <GridColumn Field="@nameof(PostGridDto.Content)" Title="Content"/>
+    </ColumnsTemplate>
+
+    <ToolbarMenusTemplate>
+        <SmcToolbarMenuItem Title="Comments"
+                            IconClass="fas fa-comments"
+                            IsDisabled="@(!_selectedPosts.Any())"
+                            OnClick="@(() => NavigateToConfiguration($"{_selectedPost!.Id}/comments"))"/>
+
+        <SmcToolbarMenuItem Title="Tags"
+                            IconClass="fas fa-tags"
+                            IsDisabled="@(!_selectedPosts.Any())"
+                            OnClick="@(() => NavigateToConfiguration($"{_selectedPost!.Id}/tags"))"/>
+            
+
+    </ToolbarMenusTemplate>
+
+    <ToolbarRightDropdownTemplate>
+        <a href="#" @onclick="ExportToExcel" @onclick:preventDefault="true">
+            <i class="fas fa-file-excel"></i> Export to Excel
+        </a>
+    </ToolbarRightDropdownTemplate>
+
+    <CardHeaderTemplate Context="post">
+        <span class="smc-status"> @post.Title</span>
+    </CardHeaderTemplate>
+
+    <CardBodyTemplate Context="post">
+        <h3 class="smc-card-title">@post.Title</h3>
+        @if (!string.IsNullOrEmpty(post.Slug))
+        {
+            <p class="smc-card-desc">@post.Slug</p>
+        }
+        else
+        {
+            <p class="smc-card-desc text-muted">No description available</p>
+        }
+    </CardBodyTemplate>
+
+    <CardFooterTemplate Context="app">
+        <div class="smc-card-id" title="@app.Id">
+            ID: @app.Id
+        </div>
+    </CardFooterTemplate>
+</SmcGrid>
+
+<ErrorDialog IsVisible="ShowErrorDialog"
+             Title="@ErrorTitle"
+             Message="@ErrorMessage"
+             ValidationErrors="@ValidationErrors"
+             OnClose="CloseErrorDialog"/>
+             CloseErrorDialog"/>
+
+<PostCreator @ref="_postCreator" Refresh="Refresh"/>
+<PostEditor @ref="_postEditor" Refresh="Refresh"/>

@@ -1,0 +1,61 @@
+﻿@page "/tags"
+@page "/{postId:guid}/tags"
+
+@using Internship.Blazor.Components.SmcGrid
+@using Internship.Blazor.Components
+@using Internship.Blazor.Pages.Tags.DTOs
+@using Internship.Blazor.Pages.Tags.Operations.Creation
+@using Internship.Blazor.Pages.Tags.Operations.Edition
+@inherits Components.BaseComponent
+
+<SmcGrid TItem="TagGridDto"
+         Title="Tags"
+         SearchPlaceholder="Search tags..."
+         Items="@_tags"
+         @bind-SelectedItems="_selectedTags"
+         OnSelectedItemsChanged="SelectedTagsChanged"
+         OnCreateClick="CreateTag"
+         OnEditClick="EditTag"
+         ConfirmDelete="true"
+         Pageable="true"
+         Groupable="true"
+         Sortable="true"
+         FilterMode="GridFilterMode.FilterMenu"
+         Resizable="true"
+         Reorderable="true"
+         SelectionMode="GridSelectionMode.Single"
+         PageSize="10"
+         Navigable="true"
+         OnRowDoubleClick="RowDoubleClicked"
+         OnDeleteClick="DeleteTag"
+         OnRefresh="Refresh"
+         OnRowClick="RowClicked"
+         SearchPredicate="@(tag => $"{tag.Name}")">
+
+    <ColumnsTemplate>
+        <GridColumn Field="@nameof(TagGridDto.Id)" Title="ID" Width="300px"/>
+        <GridColumn Field="@nameof(TagGridDto.Name)" Title="PostTitle"/>
+        <GridColumn Field="@nameof(TagGridDto.Description)" Title="AuthorName"/>
+    </ColumnsTemplate>
+
+
+    <CardHeaderTemplate Context="tag">
+        <span class="smc-status"> @tag.Id</span>
+    </CardHeaderTemplate>
+
+    <CardBodyTemplate Context="tag">
+        <h3 class="smc-card-title">@tag.Name</h3>
+    </CardBodyTemplate>
+
+    <CardFooterTemplate Context="comment">
+    </CardFooterTemplate>
+</SmcGrid>
+
+<ErrorDialog IsVisible="ShowErrorDialog"
+             Title="@ErrorTitle"
+             Message="@ErrorMessage"
+             ValidationErrors="@ValidationErrors"
+             OnClose="CloseErrorDialog"/>
+
+<TagCreator @ref="_tagCreator" Refresh="Refresh"/>
+<TagEditor @ref="_tagEditor" Refresh="Refresh"/>

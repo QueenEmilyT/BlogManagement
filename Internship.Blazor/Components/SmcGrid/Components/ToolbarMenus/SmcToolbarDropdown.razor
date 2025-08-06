@@ -1,0 +1,32 @@
+﻿@typeparam TItem where TItem : class
+
+<div class="smc-dropdown">
+    <div class="smc-toolbar-menu-item @(IsDisabled ? "disabled" : "")" 
+         @onclick="ToggleDropdown" 
+         style="pointer-events: @(IsDisabled ? "none" : "auto")">
+        <i class="@IconClass"></i>
+        <span>@Title</span>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="smc-dropdown-content @(IsOpen ? "show" : "")">
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; }
+    [Parameter] public string IconClass { get; set; }
+    [Parameter] public bool IsDisabled { get; set; }
+    [Parameter] public bool IsOpen { get; set; }
+    [Parameter] public EventCallback<bool> IsOpenChanged { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    
+    private async Task ToggleDropdown()
+    {
+        if (!IsDisabled)
+        {
+            IsOpen = !IsOpen;
+            await IsOpenChanged.InvokeAsync(IsOpen);
+        }
+    }
+}

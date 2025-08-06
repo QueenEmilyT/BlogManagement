@@ -1,0 +1,101 @@
+﻿<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #37526d">
+    <div class="container-fluid">
+        <a class="navbar-brand mb-0 h1" href="/">
+            <img src="images/logo.png" alt="Brand Logo" style="height: 30px;"/>
+        </a>
+    </div>
+</nav>
+
+<nav id="secondary-navbar" class="navbar navbar-expand-lg mb-2" style="padding: 0; background: #F2F2F2; min-height: 40px;">
+        <div class="container-fluid">
+                <ul class="navbar-nav me-auto mb-0 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/posts">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/comments">Comments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/authors">Authors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tags">Tags</a>
+                    </li>
+                </ul>
+        </div>
+    </nav>
+
+<style>
+    /* Reset default nav-link styles */
+    .nav-link {
+        color: #6c757d !important;
+        transition: color 0.15s ease-in-out;
+        padding: 0.25rem 1rem !important;
+        background: transparent !important;
+        border: none !important;
+        text-decoration: none !important;
+    }
+
+    /* Ensure all nav items have consistent height */
+    .nav-item {
+        line-height: 1.0;
+    }
+
+    /* Hover state */
+    .nav-link:hover {
+        color: #37526D !important;
+        background: transparent !important;
+    }
+
+    /* Remove ALL possible styling that could create overlay effects */
+    .navbar-nav .nav-link,
+    .navbar-nav .nav-link.active,
+    .navbar-nav .nav-link:active,
+    .navbar-nav .nav-link:focus,
+    .navbar-nav .nav-link:focus-visible,
+    .navbar-nav .nav-link:hover {
+        background-color: transparent !important;
+        background-image: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+        border: none !important;
+        text-shadow: none !important;
+        filter: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    /* For frameworks that add active class programmatically - only allow color change */
+    .navbar-nav .nav-item .nav-link.active {
+        color: #37526D !important;
+        font-weight: 500;
+        background-color: transparent !important;
+    }
+
+    /* Consistent navbar height and alignment */
+    #secondary-navbar .navbar-nav {
+        height: 100%;
+    }
+    
+    #secondary-navbar {
+        height: 40px;
+    }
+    
+    /* Use baseline alignment for consistent text positioning */
+    .navbar-nav {
+        align-items: baseline !important;
+    }
+
+    /* Override any Bootstrap or framework specific overlay styles */
+    .navbar-nav a::after,
+    .navbar-nav a::before {
+        display: none !important;
+    }
+
+    /* Override Blazor specific focus styles if needed */
+    ::deep .nav-link:after,
+    ::deep .nav-link:before {
+        display: none !important;
+    }
+</style>

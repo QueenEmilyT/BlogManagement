@@ -1,0 +1,459 @@
+﻿/* ClickUp-inspired Variables */
+:root {
+    --clickup-primary: #7b68ee;
+    --clickup-primary-light: #9c91ef;
+    --clickup-primary-dark: #5e4bc4;
+    --clickup-secondary: #292d34;
+    --clickup-gray: #f6f7f8;
+    --clickup-border: #e8e8e8;
+    --clickup-text: #2c2c2e;
+    --clickup-text-light: #6f7782;
+    --clickup-danger: #e85255;
+    --clickup-success: #4bce97;
+    --clickup-warning: #f5cd47;
+    --clickup-info: #5b9fef;
+    --clickup-white: #ffffff;
+    --clickup-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --clickup-nav-color: #37526D;
+}
+
+/* Main Container */
+.clickup-container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clickup-white);
+    border-radius: 8px;
+    box-shadow: var(--clickup-shadow);
+    margin: 20px;
+    overflow: hidden;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Header Section */
+.clickup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--clickup-border);
+}
+
+.clickup-header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.clickup-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--clickup-secondary);
+    margin: 0 0 5px 0;
+}
+
+.clickup-breadcrumb {
+    display: flex;
+    align-items: center;
+    color: var(--clickup-text-light);
+    font-size: 13px;
+}
+
+.clickup-breadcrumb i {
+    margin: 0 8px;
+    font-size: 10px;
+}
+
+.clickup-breadcrumb .active {
+    color: var(--clickup-primary);
+}
+
+.clickup-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.clickup-search {
+    position: relative;
+    width: 240px;
+}
+
+.clickup-search input {
+    width: 100%;
+    padding: 8px 12px 8px 34px;
+    border: 1px solid var(--clickup-border);
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.clickup-search input:focus {
+    border-color: var(--clickup-primary);
+    box-shadow: 0 0 0 2px rgba(123, 104, 238, 0.2);
+}
+
+.clickup-search i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--clickup-text-light);
+}
+
+/* Toolbar */
+.clickup-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--clickup-gray);
+    border-bottom: 1px solid var(--clickup-border);
+}
+
+.clickup-toolbar-left, .clickup-toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* View Selector */
+.clickup-view-selector {
+    display: flex;
+    align-items: center;
+    background-color: var(--clickup-white);
+    border: 1px solid var(--clickup-border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 8px;
+}
+
+.clickup-view-button {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--clickup-nav-color);
+    transition: all 0.2s ease;
+}
+
+.clickup-view-button i {
+    font-size: 14px;
+}
+
+.clickup-view-button:hover {
+    background-color: var(--clickup-gray);
+}
+
+.clickup-view-button.active {
+    background-color: var(--clickup-gray);
+    font-weight: 500;
+    color: var(--clickup-nav-color);
+}
+
+/* Toolbar Menu Buttons (new style) */
+.clickup-toolbar-menu-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--clickup-nav-color);
+    transition: all 0.2s ease;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.clickup-toolbar-menu-button:hover {
+    color: var(--clickup-primary);
+    background-color: rgba(123, 104, 238, 0.08);
+}
+
+.clickup-toolbar-menu-button.disabled,
+.clickup-toolbar-menu-button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    color: var(--clickup-text-light);
+    pointer-events: none;
+}
+
+.clickup-toolbar-menu-button i:last-child {
+    font-size: 10px;
+    margin-left: 4px;
+}
+
+/* Dropdown */
+.clickup-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.clickup-dropdown:hover .clickup-dropdown-content {
+    display: block;
+}
+
+.clickup-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--clickup-white);
+    min-width: 200px;
+    box-shadow: var(--clickup-shadow);
+    z-index: 10;
+    border-radius: 4px;
+    border: 1px solid var(--clickup-border);
+    margin-top: 4px;
+}
+
+.clickup-toolbar-right .clickup-dropdown-content {
+    right: 0;
+    left: auto;
+}
+
+.clickup-dropdown-content a {
+    color: var(--clickup-nav-color);
+    padding: 10px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.clickup-dropdown-content a i {
+    width: 16px;
+    text-align: center;
+    color: var(--clickup-nav-color);
+}
+
+.clickup-dropdown-content a:hover {
+    background-color: var(--clickup-gray);
+}
+
+.clickup-dropdown-content a.disabled {
+    color: var(--clickup-text-light);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Buttons */
+.clickup-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background: none;
+    border: 1px solid var(--clickup-border);
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--clickup-nav-color);
+    transition: all 0.2s ease;
+    min-width: 34px;
+    font-size: 14px;
+}
+
+.clickup-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.clickup-button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.clickup-button-primary {
+    background-color: var(--clickup-primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+}
+
+.clickup-button-primary:hover {
+    background-color: var(--clickup-primary-dark);
+}
+
+.clickup-button-danger {
+    color: var(--clickup-danger);
+}
+
+.clickup-button-danger:hover {
+    background-color: rgba(232, 82, 85, 0.1);
+}
+
+/* TelerikGrid customizations */
+.clickup-grid {
+    width: 100%;
+    border: none !important;
+}
+
+::deep .k-grid-header {
+    background-color: var(--clickup-gray) !important;
+}
+
+::deep .k-grid-header th {
+    font-weight: 600 !important;
+    color: var(--clickup-text-light) !important;
+    border-bottom: 1px solid var(--clickup-border) !important;
+}
+
+::deep .k-grid tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+::deep .k-grid tbody tr:hover {
+    background-color: rgba(123, 104, 238, 0.05) !important;
+}
+
+::deep .k-grid tbody tr.k-state-selected {
+    background-color: rgba(123, 104, 238, 0.1) !important;
+}
+
+::deep .k-pager {
+    background-color: var(--clickup-gray) !important;
+    border-top: 1px solid var(--clickup-border) !important;
+}
+
+/* Status badges */
+.clickup-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.clickup-status-active {
+    background-color: rgba(75, 206, 151, 0.2);
+    color: var(--clickup-success);
+}
+
+.clickup-status-pending {
+    background-color: rgba(245, 205, 71, 0.2);
+    color: var(--clickup-warning);
+}
+
+.clickup-status-inactive {
+    background-color: rgba(232, 82, 85, 0.2);
+    color: var(--clickup-danger);
+}
+
+.clickup-status-draft {
+    background-color: rgba(91, 159, 239, 0.2);
+    color: var(--clickup-info);
+}
+
+/* Card View */
+.clickup-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--clickup-gray);
+    min-height: 400px;
+}
+
+.clickup-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clickup-white);
+    border-radius: 6px;
+    box-shadow: var(--clickup-shadow);
+    overflow: hidden;
+    transition: all 0.2s ease;
+    border: 1px solid var(--clickup-border);
+    cursor: pointer;
+    height: 100%;
+}
+
+.clickup-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.clickup-card.selected {
+    border: 2px solid var(--clickup-primary);
+}
+
+.clickup-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid var(--clickup-border);
+}
+
+.clickup-card-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.clickup-card-action {
+    background: none;
+    border: none;
+    color: var(--clickup-text-light);
+    font-size: 12px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clickup-card-action:hover {
+    color: var(--clickup-primary);
+    background-color: rgba(123, 104, 238, 0.08);
+}
+
+.clickup-card-body {
+    padding: 12px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.clickup-card-title {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--clickup-secondary);
+}
+
+.clickup-card-version {
+    font-size: 12px;
+    color: var(--clickup-text-light);
+    margin-bottom: 12px;
+}
+
+.clickup-card-desc {
+    font-size: 13px;
+    color: var(--clickup-text);
+    margin: 0;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.clickup-card-desc.text-muted {
+    color: var(--clickup-text-light);
+    font-style: italic;
+}
+
+.clickup-card-footer {
+    padding: 12px;
+    border-top: 1px solid var(--clickup-border);
+    font-size: 12px;
+    color: var(--clickup-text-light);
+}
+
+.clickup-card-id {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

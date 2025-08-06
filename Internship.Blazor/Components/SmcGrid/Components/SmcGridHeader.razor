@@ -1,0 +1,18 @@
+﻿<div class="smc-header">
+    <div class="smc-header-left">
+        <h1 class="smc-title">@Title</h1>
+    </div>
+    <div class="smc-header-right">
+        <div class="smc-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="@SearchPlaceholder" @oninput="OnSearchInput" @bind="SearchTerm" />
+        </div>
+        @if (CreateButtonVisible)
+        {
+            <button class="smc-button smc-button-primary" @onclick="OnCreateClick">
+                <i class="fas fa-plus"></i> @CreateButtonText
+            </button>
+        }
+        @HeaderRightContentTemplate
+    </div>
+</div>

@@ -1,0 +1,9 @@
+﻿
+@code {
+    [Parameter] public Func<Task>? Refresh { get; set; }
+    
+    public void Show()
+    {
+        StateHasChanged();
+    }
+}

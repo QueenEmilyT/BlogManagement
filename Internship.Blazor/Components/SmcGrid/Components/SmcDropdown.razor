@@ -1,0 +1,85 @@
+﻿@typeparam TItem
+@using Microsoft.AspNetCore.Components
+
+<div class="smc-dropdown">
+    <button class="smc-toolbar-menu-button @(IsDisabled ? "disabled" : "")" 
+            @onclick="ToggleDropdown" 
+            disabled="@IsDisabled">
+        <i class="@IconCssClass"></i>
+        @if (!string.IsNullOrEmpty(Text))
+        {
+            <span>@Text</span>
+        }
+        @if (ShowDropdownIcon)
+        {
+            <i class="fas fa-chevron-down"></i>
+        }
+    </button>
+    <div class="smc-dropdown-content @(IsOpen ? "show" : "")">
+        @if (MenuItemsTemplate != null)
+        {
+            @MenuItemsTemplate
+        }
+        else if (ItemsSource != null)
+        {
+            @foreach (var item in ItemsSource)
+            {
+                var itemContext = item;
+                <a href="#" @onclick="@(() => HandleItemClick(itemContext))" @onclick:preventDefault="true"
+                   class="@(IsItemDisabled != null && IsItemDisabled(itemContext) ? "disabled" : "")">
+                    @if (ItemTemplate != null)
+                    {
+                        @ItemTemplate(itemContext)
+                    }
+                    else
+                    {
+                        @itemContext?.ToString()
+                    }
+                </a>
+            }
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Text { get; set; }
+    [Parameter] public string IconCssClass { get; set; } = "fas fa-ellipsis-h";
+    [Parameter] public bool IsDisabled { get; set; }
+    [Parameter] public bool ShowDropdownIcon { get; set; } = true;
+    [Parameter] public bool IsOpen { get; set; }
+    [Parameter] public EventCallback<bool> IsOpenChanged { get; set; }
+    [Parameter] public EventCallback OnToggle { get; set; }
+    [Parameter] public IEnumerable<TItem> ItemsSource { get; set; }
+    [Parameter] public Func<TItem, bool> IsItemDisabled { get; set; }
+    [Parameter] public EventCallback<TItem> OnItemClick { get; set; }
+    [Parameter] public RenderFragment<TItem> ItemTemplate { get; set; }
+    [Parameter] public RenderFragment MenuItemsTemplate { get; set; }
+    [Parameter] public EventCallback<TItem> OnMenuItemClick { get; set; }
+    
+    private async Task ToggleDropdown()
+    {
+        IsOpen = !IsOpen;
+        await IsOpenChanged.InvokeAsync(IsOpen);
+        
+        if (OnToggle.HasDelegate)
+        {
+            await OnToggle.InvokeAsync();
+        }
+    }
+    
+    private async Task HandleItemClick(TItem item)
+    {
+        if (OnItemClick.HasDelegate && !(IsItemDisabled?.Invoke(item) ?? false))
+        {
+            await OnItemClick.InvokeAsync(item);
+            IsOpen = false;
+            await IsOpenChanged.InvokeAsync(false);
+        }
+    }
+    
+    public void Close()
+    {
+        IsOpen = false;
+        _ = IsOpenChanged.InvokeAsync(false);
+    }
+}

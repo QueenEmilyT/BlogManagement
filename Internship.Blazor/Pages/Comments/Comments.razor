@@ -1,0 +1,60 @@
+﻿@page "/{postId:guid}/comments"
+@page "/comments"
+@using Internship.Blazor.Components.SmcGrid
+@using Internship.Blazor.Components
+@using Internship.Blazor.Pages.Comments.DTOs
+@using Internship.Blazor.Pages.Comments.Operations.Creation
+@inherits Components.BaseComponent
+
+<SmcGrid TItem="CommentGridDto"
+         Title="Comments"
+         SearchPlaceholder="Search comments..."
+         Items="@_comments"
+         @bind-SelectedItems="_selectedComments"
+         OnSelectedItemsChanged="SelectedCommentsChanged"
+         OnCreateClick="CreateComment"
+         OnEditClick="EditComment"
+         OnDeleteClick="DeleteComment"
+         OnRefresh="Refresh"
+         OnRowClick="RowClicked"
+         ConfirmDelete="true"
+         Pageable="true"
+         Groupable="true"
+         Sortable="true"
+         FilterMode="GridFilterMode.FilterMenu"
+         Resizable="true"
+         Reorderable="true"
+         SelectionMode="GridSelectionMode.Single"
+         PageSize="10"
+         Navigable="true"
+         OnRowDoubleClick="RowDoubleClicked"
+         SearchPredicate="@(comment => $"{comment.AuthorName}")">
+
+    <ColumnsTemplate>
+        <GridColumn Field="@nameof(CommentGridDto.Id)" Title="ID" Width="300px"/>
+        <GridColumn Field="@nameof(CommentGridDto.PostTitle)" Title="PostTitle"/>
+        <GridColumn Field="@nameof(CommentGridDto.AuthorName)" Title="AuthorName"/>
+        <GridColumn Field="@nameof(CommentGridDto.CreatedAt)" Title="Created At"/>
+        <GridColumn Field="@nameof(CommentGridDto.ContentPreview)" Title="ContentPreview"/>
+    </ColumnsTemplate>
+
+
+    <CardHeaderTemplate Context="comment">
+        <span class="smc-status"> @comment.Id</span>
+    </CardHeaderTemplate>
+
+    <CardBodyTemplate Context="comment">
+        <h3 class="smc-card-title">@comment.AuthorName</h3>
+    </CardBodyTemplate>
+
+    <CardFooterTemplate Context="comment">
+    </CardFooterTemplate>
+</SmcGrid>
+
+<ErrorDialog IsVisible="ShowErrorDialog"
+             Title="@ErrorTitle"
+             Message="@ErrorMessage"
+             ValidationErrors="@ValidationErrors"
+             OnClose="CloseErrorDialog"/>
+
+<CommentCreator @ref="_commentCreator" Refresh="Refresh"/>

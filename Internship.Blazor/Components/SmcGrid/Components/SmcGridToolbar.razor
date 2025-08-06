@@ -1,0 +1,66 @@
+﻿@using Internship.Blazor.Components.SmcGrid.Models
+@using Microsoft.AspNetCore.Components
+@using Internship.Blazor.Components.SmcGrid.Components.ToolbarMenus
+
+<div class="smc-toolbar">
+    <div class="smc-toolbar-left">
+        <div class="smc-view-selector">
+            <button class="smc-view-button @(CurrentView == SmcGridViewType.Table ? "active" : "")" @onclick="() => SwitchView(SmcGridViewType.Table)">
+                <i class="fas fa-table"></i>
+                <span>Table</span>
+            </button>
+            <button class="smc-view-button @(CurrentView == SmcGridViewType.Board ? "active" : "")" @onclick="() => SwitchView(SmcGridViewType.Board)">
+                <i class="fas fa-columns"></i>
+                <span>Board</span>
+            </button>
+        </div>
+        
+        <SmcToolbarMenuContainer>
+            @ToolbarMenusTemplate
+        </SmcToolbarMenuContainer>
+    </div>
+    
+    <div class="smc-toolbar-right">
+        <button class="smc-button" @onclick="OnRefresh" title="Refresh">
+            <i class="fas fa-sync-alt"></i>
+        </button>
+        
+        @if (EditButtonVisible)
+        {
+            <button class="smc-button" disabled="@(!HasSelectedItems)" @onclick="OnEditClick" title="Edit">
+                <i class="fas fa-edit"></i>
+            </button>
+        }
+        
+        @if (DeleteButtonVisible)
+        {
+            <button class="smc-button smc-button-danger" @onclick="OnDeleteClick"
+                    disabled="@(!HasSelectedItems)" title="Delete">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        }
+        
+        <div class="smc-dropdown">
+            <button class="smc-button" @onclick="ToggleActionsDropdown" title="More Actions">
+                <i class="fas fa-ellipsis-h"></i>
+            </button>
+            <div class="smc-dropdown-content @(ShowActionsDropdown ? "show" : "")">
+                @if (ToolbarRightDropdownTemplate != null)
+                {
+                    @ToolbarRightDropdownTemplate
+                }
+                else
+                {
+                    <a href="#" @onclick="OnExportClick" @onclick:preventDefault="true">
+                        <i class="fas fa-file-excel"></i> Export to Excel
+                    </a>
+                }
+            </div>
+        </div>
+        
+        @if (ToolbarRightContentTemplate != null)
+        {
+            @ToolbarRightContentTemplate
+        }
+    </div>
+</div>

@@ -1,0 +1,74 @@
+﻿@using Internship.Blazor.Pages.Tags
+@using Internship.Blazor.Pages.Tags.DTOs
+@inject TagsService Service
+<TelerikDialog @bind-Visible="@Visible"
+               Width="500px"
+               Height="400px"
+               ShowCloseButton="@ShowCloseButton"
+               CloseOnOverlayClick="@CloseOnOverlayClick">
+    <DialogTitle>
+        <TelerikSvgIcon Icon="@SvgIcon.Gears"></TelerikSvgIcon>
+        <span style="margin-left:.5em">Edit Tag</span>
+    </DialogTitle>
+    <DialogContent>
+            <TelerikForm
+                Orientation="FormOrientation.Vertical"
+                OnValidSubmit="@HandleValidSubmit"
+                OnInvalidSubmit="@HandleInvalidSubmit"
+                Model="@Tag">
+                <FormValidation>
+                    <DataAnnotationsValidator></DataAnnotationsValidator>
+                    <TelerikValidationSummary></TelerikValidationSummary>
+                </FormValidation>
+                <FormItems>
+                    <FormItem Field="@nameof(Tag.Id)" LabelText="Id"></FormItem>
+                    <FormItem Field="@nameof(Tag.Name)" LabelText="Name"></FormItem>
+                    <FormItem LabelText="Description">
+                        <Template>
+                            <TelerikTextArea @bind-Value="@Tag.Description" 
+                                             Width="100%" 
+                                             Class="textarea-large"
+                                             Placeholder="Enter tag description..."></TelerikTextArea>
+                        </Template>
+                    </FormItem>
+                </FormItems>
+                <FormButtons>
+                    <TelerikButton Enabled="_enabled" ButtonType="ButtonType.Submit" ThemeColor="primary">Edit
+                    </TelerikButton>
+                    <TelerikButton ThemeColor="secondary">Cancel</TelerikButton>
+                </FormButtons>
+            </TelerikForm>
+    </DialogContent>
+</TelerikDialog>
+
+@code{
+    private bool _enabled = true;
+    [Parameter] public Func<Task>? Refresh { get; set; }
+    private bool ShowCloseButton { get; set; } = true;
+    private bool CloseOnOverlayClick { get; set; } = true;
+    private bool Visible { get; set; }
+    private TagDto Tag { get; set; } = new();
+
+
+    public async Task ShowAsync(Guid id)
+    {
+        Tag = await Service.GetTagAsync(id);
+        Visible = true;
+        StateHasChanged();
+    }
+
+    private async Task HandleValidSubmit(EditContext arg)
+    {
+        _enabled = false;
+        await Service.UpdateTagAsync(Tag.Id, Tag);
+        Visible = false;
+        await Refresh();
+    }
+
+    private void HandleInvalidSubmit(EditContext obj)
+    {
+        Tag = new TagDto();
+        Visible = false;
+    }
+
+}

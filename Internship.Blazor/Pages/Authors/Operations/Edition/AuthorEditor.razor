@@ -1,0 +1,84 @@
+﻿@using Internship.Blazor.Pages.Authors.DTOs
+@inject AuthorsService Service
+<TelerikDialog @bind-Visible="@Visible"
+               Width="800px"
+               Height="650px"
+               ShowCloseButton="@ShowCloseButton"
+               CloseOnOverlayClick="@CloseOnOverlayClick">
+    <DialogTitle>
+        <TelerikSvgIcon Icon="@SvgIcon.User"></TelerikSvgIcon>
+        <span style="margin-left:.5em">Create Author</span>
+    </DialogTitle>
+    <DialogContent>
+            <TelerikForm
+                Orientation="FormOrientation.Vertical"
+                OnValidSubmit="@HandleValidSubmit"
+                OnInvalidSubmit="@HandleInvalidSubmit"
+                Model="@Author">
+                <FormValidation>
+                    <DataAnnotationsValidator></DataAnnotationsValidator>
+                    <TelerikValidationSummary></TelerikValidationSummary>
+                </FormValidation>
+                <FormItems>
+                    <FormGroup LabelText="CreateAuthor Social Information" Columns="2" ColumnSpacing="20px">
+                        <FormItem Field="@nameof(Author.Name)" LabelText="Name"></FormItem>
+                        <FormItem Field="@nameof(Author.Email)" LabelText="Email"></FormItem>
+                        <FormItem Field="@nameof(Author.Location)" LabelText="Location"></FormItem>
+                        <FormItem ColSpan="2" Class="textarea-medium" Field="@nameof(Author.Bio)" LabelText="Bio" EditorType="FormEditorType.TextArea"></FormItem>
+                    </FormGroup>
+                    
+
+                    <FormGroup LabelText="CreateAuthor Social Handlers" Columns="2" ColumnSpacing="20px">
+                        <FormItem Field="@nameof(Author.WebsiteUrl)" LabelText="Website"></FormItem>
+                        <FormItem Field="@nameof(Author.TwitterHandle)" LabelText="Twitter"></FormItem>
+                        <FormItem Field="@nameof(Author.FacebookUrl)" LabelText="Facebook"></FormItem>
+                        <FormItem Field="@nameof(Author.LinkedInUrl)" LabelText="LinkedIn"></FormItem>
+                        <FormItem Field="@nameof(Author.GitHubUrl)" LabelText="GitHub"></FormItem>
+                    </FormGroup>
+
+                </FormItems>
+                <FormButtons>
+                    <TelerikButton Enabled="_enabled" ButtonType="ButtonType.Submit" ThemeColor="primary">Edit
+                    </TelerikButton>
+                    <TelerikButton ThemeColor="secondary">Cancel</TelerikButton>
+                </FormButtons>
+            </TelerikForm>
+    </DialogContent>
+</TelerikDialog>
+
+@code{
+    private bool _enabled = true;
+    [Parameter] public Func<Task>? Refresh { get; set; }
+    private bool ShowCloseButton { get; set; } = true;
+    private bool CloseOnOverlayClick { get; set; } = true;
+    private bool Visible { get; set; }
+    private AuthorDto Author { get; set; } = new();
+
+
+    public async Task ShowAsync(Guid id)
+    {
+        Author = await Service.GetAuthorAsync(id);
+        Visible = true;
+        StateHasChanged();
+    }
+
+    private async Task HandleValidSubmit(EditContext arg)
+    {
+        _enabled = false;
+        await Service.UpdateAuthorAsync(Author.Id, Author);
+        Visible = false;
+        await Refresh();
+    }
+
+    private void HandleInvalidSubmit(EditContext obj)
+    {
+        Author = new AuthorDto();
+        Visible = false;
+    }
+}
+
+<style>
+    .textarea-medium {
+        height: 50px !important;
+    }
+</style>

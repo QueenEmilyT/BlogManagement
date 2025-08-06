@@ -1,0 +1,25 @@
+﻿@inherits Microsoft.AspNetCore.Components.ComponentBase
+
+<button type="@GetHtmlButtonType()"
+        class="@CssClass"
+        style="@CustomStyle"
+        disabled="@Disabled"
+        title="@Title"
+        id="@Id"
+        @onclick="HandleClick"
+        @onclick:preventDefault="PreventDefault"
+        @onclick:stopPropagation="StopPropagation"
+        @attributes="AdditionalAttributes">
+    @if (!string.IsNullOrEmpty(IconClass))
+    {
+        <i class="@IconClass"></i>
+    }
+    @if (!string.IsNullOrEmpty(Icon))
+    {
+        <span class="k-icon k-i-@Icon"></span>
+    }
+    @if (!string.IsNullOrEmpty(Text) || ChildContent != null)
+    {
+        <span class="smc-button-text">@Text @ChildContent</span>
+    }
+</button>

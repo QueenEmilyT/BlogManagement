@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Components
+
+@if (!IsDisabled)
+{
+    <button type="button" class="smc-toolbar-menu-item" @onclick="OnClick">
+        <i class="@IconClass"></i>
+        <span>@Title</span>
+    </button>
+}
+else
+{
+    <button type="button" class="smc-toolbar-menu-item disabled" disabled>
+        <i class="@IconClass"></i>
+        <span>@Title</span>
+    </button>
+}
+
+@code {
+    [Parameter] public string Title { get; set; } = string.Empty;
+    [Parameter] public string IconClass { get; set; } = string.Empty;
+    [Parameter] public bool IsDisabled { get; set; }
+    [Parameter] public EventCallback OnClick { get; set; }
+}

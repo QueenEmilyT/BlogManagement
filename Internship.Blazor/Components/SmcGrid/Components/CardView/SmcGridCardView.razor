@@ -1,0 +1,63 @@
+﻿@typeparam TItem where TItem : class
+
+<div class="smc-card-container">
+    @foreach (var item in Items)
+    {
+        <div class="smc-card @(SelectedItems.Contains(item) ? "selected" : "")" 
+             @onclick="() => CardClicked(item)" 
+             @ondblclick="() => CardDoubleClicked(item)">
+            @if (CardTemplate != null)
+            {
+                @CardTemplate(item)
+            }
+            else
+            {
+                <div class="smc-card-header">
+                    @if (CardHeaderTemplate != null)
+                    {
+                        @CardHeaderTemplate(item)
+                    }
+                    
+                    <div class="smc-card-actions">
+                        @if (EditButtonVisible)
+                        {
+                            <button class="smc-card-action" title="Edit" 
+                                    @onclick:stopPropagation="true" 
+                                    @onclick="() => OnEditItemClick(item)">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        }
+                        
+                        @if (DeleteButtonVisible)
+                        {
+                            <button class="smc-card-action" title="Delete" 
+                                    @onclick:stopPropagation="true" 
+                                    @onclick="() => OnDeleteItemClick(item)">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        }
+                        
+                        @if (CardActionsTemplate != null)
+                        {
+                            @CardActionsTemplate(item)
+                        }
+                    </div>
+                </div>
+                
+                <div class="smc-card-body">
+                    @if (CardBodyTemplate != null)
+                    {
+                        @CardBodyTemplate(item)
+                    }
+                </div>
+                
+                <div class="smc-card-footer">
+                    @if (CardFooterTemplate != null)
+                    {
+                        @CardFooterTemplate(item)
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>

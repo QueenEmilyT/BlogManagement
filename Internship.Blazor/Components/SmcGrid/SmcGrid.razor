@@ -1,0 +1,124 @@
+﻿@typeparam TItem where TItem : class
+@using Internship.Blazor.Components.SmcGrid.Models
+@using Internship.Blazor.Components.SmcGrid.Components
+@using Internship.Blazor.Components.SmcGrid.Components.TableView
+@using Internship.Blazor.Components.SmcGrid.Components.CardView
+@inherits BaseComponent
+
+<div class="smc-container">
+    <SmcGridHeader Title="@Title"
+                   SearchPlaceholder="@SearchPlaceholder"
+                   @bind-SearchTerm="SearchTerm"
+                   CreateButtonVisible="@CreateButtonVisible" 
+                   CreateButtonText="@CreateButtonText"
+                   OnCreateClick="OnCreateClick">
+        <HeaderRightContentTemplate>
+            @HeaderRightContentTemplate
+        </HeaderRightContentTemplate>
+    </SmcGridHeader>
+
+    <SmcGridToolbar CurrentView="@CurrentView"
+                    CurrentViewChanged="HandleViewChange"
+                    HasSelectedItems="@SelectedItems.Any()"
+                    OnRefresh="Refresh"
+                    OnEditClick="HandleEditClick"
+                    OnDeleteClick="HandleDeleteClick"
+                    OnExportClick="HandleExportClick"
+                    EditButtonVisible="@EditButtonVisible"
+                    DeleteButtonVisible="@DeleteButtonVisible"
+                    @ref="ToolbarRef">
+        <ToolbarMenusTemplate>
+            @ToolbarMenusTemplate
+        </ToolbarMenusTemplate>
+        <ToolbarLeftContentTemplate>
+            @ToolbarLeftContentTemplate
+        </ToolbarLeftContentTemplate>
+        <ToolbarRightContentTemplate>
+            @ToolbarRightContentTemplate
+        </ToolbarRightContentTemplate>
+        <ToolbarRightDropdownTemplate>
+            @ToolbarRightDropdownTemplate
+        </ToolbarRightDropdownTemplate>
+    </SmcGridToolbar>
+
+    @if (CurrentView == SmcGridViewType.Table)
+    {
+        <SmcGridTableView TItem="TItem"
+                         Items="@FilteredItems"
+                         @bind-SelectedItems="@SelectedItems"
+                         ShowCheckboxColumn="@ShowCheckboxColumn"
+                         EnableLoaderContainer="@EnableGridLoaderContainer"
+                         ConfirmDelete="@ConfirmDelete"
+                         Pageable="@Pageable"
+                         OnRowClick="RowClicked"
+                         OnRowDoubleClick="RowDoubleClicked"
+                         Groupable="@Groupable"
+                         Sortable="@Sortable"
+                         FilterMode="@FilterMode"
+                         Resizable="@Resizable"
+                         Reorderable="@Reorderable"
+                         EditMode="@EditMode"
+                         SelectionMode="@SelectionMode"
+                         PageSize="@PageSize"
+                         Navigable="@Navigable"
+                         GridRef="@GridRef">
+            <ColumnsTemplate>
+                @ColumnsTemplate
+            </ColumnsTemplate>
+            <ActionsColumnTemplate Context="item">
+                @if (ActionsColumnTemplate != null)
+                {
+                    @ActionsColumnTemplate(item)
+                }
+            </ActionsColumnTemplate>
+        </SmcGridTableView>
+    }
+    else
+    {
+        <SmcGridCardView TItem="TItem"
+                        Items="@FilteredItems"
+                        @bind-SelectedItems="@SelectedItems"
+                        OnItemClick="HandleCardClick"
+                        OnItemDoubleClick="HandleCardDoubleClick"
+                        OnEditClick="HandleItemEdit"
+                        OnDeleteClick="HandleItemDelete"
+                        EditButtonVisible="@EditButtonVisible"
+                        DeleteButtonVisible="@DeleteButtonVisible">
+            <CardTemplate Context="item">
+                @if (CardTemplate != null)
+                {
+                    @CardTemplate(item)
+                }
+            </CardTemplate>
+            <CardHeaderTemplate Context="item">
+                @if (CardHeaderTemplate != null)
+                {
+                    @CardHeaderTemplate(item)
+                }
+            </CardHeaderTemplate>
+            <CardBodyTemplate Context="item">
+                @if (CardBodyTemplate != null)
+                {
+                    @CardBodyTemplate(item)
+                }
+            </CardBodyTemplate>
+            <CardFooterTemplate Context="item">
+                @if (CardFooterTemplate != null)
+                {
+                    @CardFooterTemplate(item)
+                }
+            </CardFooterTemplate>
+            <CardActionsTemplate Context="item">
+                @if (CardActionsTemplate != null)
+                {
+                    @CardActionsTemplate(item)
+                }
+            </CardActionsTemplate>
+        </SmcGridCardView>
+    }
+
+    @if (LoadingTemplate != null)
+    {
+        @LoadingTemplate
+    }
+</div>

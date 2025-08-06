@@ -1,0 +1,32 @@
+﻿@using Telerik.Blazor.Components.Editor
+
+<div style="height: 400px; overflow-y: auto; border: 1px solid #ccc;">
+    <TelerikEditor @bind-Value="@Value"
+                   Tools="@Tools"
+                   Height="100%">
+    </TelerikEditor>
+</div>
+
+
+@code
+{
+    
+    private List<IEditorTool> Tools { get; set; } =
+    [
+        new EditorButtonGroup(new Telerik.Blazor.Components.Editor.Bold(), 
+            new Telerik.Blazor.Components.Editor.Italic(), 
+            new Telerik.Blazor.Components.Editor.Underline()),
+        new EditorButtonGroup(new Telerik.Blazor.Components.Editor.AlignLeft(), 
+            new Telerik.Blazor.Components.Editor.AlignCenter(), 
+            new Telerik.Blazor.Components.Editor.AlignRight()),
+        new UnorderedList(),
+        new EditorButtonGroup(new CreateLink(), new Telerik.Blazor.Components.Editor.Unlink(), new InsertImage()),
+        new InsertTable(),
+        new EditorButtonGroup(new AddRowBefore(), new AddRowAfter(), new MergeCells(), new SplitCell()),
+        new Format(),
+        new Telerik.Blazor.Components.Editor.FontSize(),
+        new Telerik.Blazor.Components.Editor.FontFamily()
+    ];
+
+    [Parameter] public string Value { get; set; } = string.Empty;
+}

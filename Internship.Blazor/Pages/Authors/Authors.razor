@@ -1,0 +1,85 @@
+﻿@page "/authors"
+@using Internship.Blazor.Components.SmcGrid
+@using Internship.Blazor.Pages.Posts.DTOs
+@using Internship.Blazor.Components.SmcGrid.Components.ToolbarMenus
+@using Internship.Blazor.Components
+@using Internship.Blazor.Pages.Authors.DTOs
+@using Internship.Blazor.Pages.Posts.Operations.Creation
+@using Internship.Blazor.Pages.Authors.Operations.Creation
+@using Internship.Blazor.Pages.Authors.Operations.Edition
+@inherits Components.BaseComponent
+
+<SmcGrid TItem="AuthorGridDto"
+         Title="Authors"
+         SearchPlaceholder="Search authors..."
+         Items="@_authors"
+         @bind-SelectedItems="_selectedAuthors"
+         OnSelectedItemsChanged="SelectedAuthorsChanged"
+         OnCreateClick="CreateAuthor"
+         OnEditClick="EditAuthor"
+         OnDeleteClick="DeleteAuthor"
+         OnRefresh="Refresh"
+         OnRowClick="RowClicked"
+         OnRowDoubleClick="RowDoubleClicked"
+         OnExportClick="ExportToExcel"
+         ConfirmDelete="true"
+         Pageable="true"
+         Groupable="true"
+         Sortable="true"
+         FilterMode="GridFilterMode.FilterMenu"
+         Resizable="true"
+         Reorderable="true"
+         SelectionMode="GridSelectionMode.Single"
+         PageSize="10"
+         Navigable="true"
+         SearchPredicate="@(author => $"{author.Email} {author.Name}")">
+
+    <ColumnsTemplate>
+        <GridColumn Field="@nameof(AuthorGridDto.Id)" Title="ID" Width="300px"/>
+        <GridColumn Field="@nameof(AuthorGridDto.Name)" Title="Name"/>
+        <GridColumn Field="@nameof(AuthorGridDto.Email)" Title="Email"/>
+        <GridColumn Field="@nameof(AuthorGridDto.Bio)" Title="Bio"/>
+    </ColumnsTemplate>
+
+    <ToolbarMenusTemplate>
+        <SmcToolbarMenuItem Title="Blog Posts"
+                            IconClass="fas fa-comments"
+                            IsDisabled="@(!_selectedAuthors.Any())"
+                            OnClick="@(() => NavigateToConfiguration($"{_selectedAuthor!.Id}/posts"))"/>
+
+        <SmcToolbarMenuItem Title="Comments"
+                            IconClass="fas fa-user-edit"
+                            IsDisabled="@(!_selectedAuthors.Any())"
+                            OnClick="@(() => NavigateToConfiguration("authors"))"/>
+    </ToolbarMenusTemplate>
+
+    <ToolbarRightDropdownTemplate>
+        <a href="#" @onclick="ExportToExcel" @onclick:preventDefault="true">
+            <i class="fas fa-file-excel"></i> Export to Excel
+        </a>
+    </ToolbarRightDropdownTemplate>
+
+    <CardHeaderTemplate Context="author">
+        <span class="smc-status"> @author.Name</span>
+    </CardHeaderTemplate>
+
+    <CardBodyTemplate Context="author">
+        <h3 class="smc-card-title">@author.Email</h3>
+        
+    </CardBodyTemplate>
+
+    <CardFooterTemplate Context="author">
+        <div class="smc-card-id" title="@author.Id">
+            ID: @author.Id
+        </div>
+    </CardFooterTemplate>
+</SmcGrid>
+
+<ErrorDialog IsVisible="ShowErrorDialog"
+             Title="@ErrorTitle"
+             Message="@ErrorMessage"
+             ValidationErrors="@ValidationErrors"
+             OnClose="CloseErrorDialog"/>
+
+<AuthorCreator @ref="_authorCreator" Refresh="Refresh"/>
+<AuthorEditor @ref="_authorEditor" Refresh="Refresh"/>

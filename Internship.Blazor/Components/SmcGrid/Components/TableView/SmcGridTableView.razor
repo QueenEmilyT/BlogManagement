@@ -1,0 +1,42 @@
+﻿@typeparam TItem where TItem : class
+@using Telerik.Blazor.Components
+
+<TelerikGrid Class="smc-grid"
+             EnableLoaderContainer="@EnableLoaderContainer"
+             Data="@Items"
+             @bind-SelectedItems="@SelectedItems"
+             ConfirmDelete="@ConfirmDelete"
+             Pageable="@Pageable"
+             OnRowClick="OnRowClick"
+             OnRowDoubleClick="OnRowDoubleClick"
+             Groupable="@Groupable"
+             Sortable="@Sortable"
+             FilterMode="@FilterMode"
+             Resizable="@Resizable"
+             Reorderable="@Reorderable"
+             EditMode="@EditMode"
+             SelectionMode="@SelectionMode"
+             PageSize="@PageSize"
+             Navigable="@Navigable"
+             @ref="GridRef">
+    <GridColumns>
+        @if (ShowCheckboxColumn)
+        {
+            <GridCheckboxColumn></GridCheckboxColumn>
+        }
+        
+        @ColumnsTemplate
+        
+        @if (ActionsColumnTemplate != null)
+        {
+            <GridCommandColumn Width="120px">
+                <Template>
+                    @{
+                        var item = (TItem)context;
+                        @ActionsColumnTemplate(item)
+                    }
+                </Template>
+            </GridCommandColumn>
+        }
+    </GridColumns>
+</TelerikGrid>

@@ -1,0 +1,164 @@
+﻿/* SmcButton.razor.css - Scoped CSS for the SmcButton component */
+
+/* Custom styling overrides for the TelerikButton */
+::deep .k-button.smc-button {
+    gap: 8px;
+    transition: all 0.2s ease;
+    position: relative;
+    user-select: none;
+}
+
+/* Shape Variants */
+::deep .k-button.smc-button-round {
+    border-radius: 50px !important; /* For perfectly round buttons */
+}
+
+/* Icon-only buttons */
+::deep .k-button.smc-button-icon-only {
+    padding: 8px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+}
+
+::deep .k-button.smc-button-icon-only.k-button-sm {
+    padding: 6px !important;
+    width: 30px !important;
+    height: 30px !important;
+}
+
+::deep .k-button.smc-button-icon-only.k-button-lg {
+    padding: 10px !important;
+    width: 42px !important;
+    height: 42px !important;
+}
+
+/* For focused state */
+::deep .k-button.smc-button:focus {
+    box-shadow: 0 0 0 3px rgba(123, 104, 238, 0.25);
+}
+
+/* For hover state - ClickUp style colors */
+::deep .k-button.smc-button:hover:not(:disabled) {
+    filter: brightness(95%);
+}
+
+/* For active/pressed state */
+::deep .k-button.smc-button:active:not(:disabled) {
+    transform: translateY(1px);
+}
+
+/* Theme Variants - ClickUp Style */
+::deep .k-button.smc-button.k-primary {
+    background-color: #7B68EE; /* ClickUp's vibrant purple */
+    border-color: #7B68EE;
+}
+
+::deep .k-button.smc-button.k-primary:hover:not(:disabled) {
+    background-color: #6A5ACD; /* Darker purple on hover */
+    border-color: #6A5ACD;
+}
+
+::deep .k-button.smc-button.k-secondary {
+    background-color: #F3F4F8;
+    color: #2C2C2C;
+    border-color: #E6E8EF;
+}
+
+::deep .k-button.smc-button.k-secondary:hover:not(:disabled) {
+    background-color: #E6E8EF;
+    border-color: #D7DBEA;
+}
+
+::deep .k-button.smc-button.k-success {
+    background-color: #36B37E; /* ClickUp green */
+    color: white;
+    border-color: #36B37E;
+}
+
+::deep .k-button.smc-button.k-success:hover:not(:disabled) {
+    background-color: #2DA06C;
+    border-color: #2DA06C;
+}
+
+::deep .k-button.smc-button.k-error {
+    background-color: #FF5722; /* ClickUp red/orange */
+    color: white;
+    border-color: #FF5722;
+}
+
+::deep .k-button.smc-button.k-error:hover:not(:disabled) {
+    background-color: #E64A19;
+    border-color: #E64A19;
+}
+
+::deep .k-button.smc-button.k-warning {
+    background-color: #FFAB00; /* ClickUp yellow */
+    color: #1F1F1F;
+    border-color: #FFAB00;
+}
+
+::deep .k-button.smc-button.k-warning:hover:not(:disabled) {
+    background-color: #FF9800;
+    border-color: #FF9800;
+}
+
+::deep .k-button.smc-button.k-info {
+    background-color: #4A9DFF; /* ClickUp blue */
+    color: white;
+    border-color: #4A9DFF;
+}
+
+::deep .k-button.smc-button.k-info:hover:not(:disabled) {
+    background-color: #3D8AE8;
+    border-color: #3D8AE8;
+}
+
+/* Outlined Variants */
+::deep .k-button.smc-button.smc-button-outlined {
+    background-color: transparent !important;
+}
+
+::deep .k-button.smc-button.smc-button-outlined.k-primary {
+    color: #7B68EE !important;
+    border-color: #7B68EE !important;
+}
+
+::deep .k-button.smc-button.smc-button-outlined.k-primary:hover:not(:disabled) {
+    background-color: rgba(123, 104, 238, 0.1) !important;
+}
+
+::deep .k-button.smc-button.smc-button-outlined.k-secondary {
+    color: #2C2C2C !important;
+    border-color: #D7DBEA !important;
+}
+
+::deep .k-button.smc-button.smc-button-outlined.k-secondary:hover:not(:disabled) {
+    background-color: rgba(44, 44, 44, 0.05) !important;
+}
+
+::deep .k-button.smc-button.smc-button-outlined.k-success {
+    color: #36B37E !important;
+    border-color: #36B37E !important;
+}
+
+::deep .k-button.smc-button.smc-button-outlined.k-success:hover:not(:disabled) {
+    background-color: rgba(54, 179, 126, 0.1) !important;
+}
+
+::deep .k-button.smc-button.smc-button-outlined.k-error {
+    color: #FF5722 !important;
+    border-color: #FF5722 !important;
+}
+
+::deep .k-button.smc-button.smc-button-outlined.k-error:hover:not(:disabled) {
+    background-color: rgba(255, 87, 34, 0.1) !important;
+}
+
+/* Button Text */
+::deep .smc-button-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

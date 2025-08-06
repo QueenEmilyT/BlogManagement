@@ -1,0 +1,123 @@
+﻿@using Internship.Blazor.Pages.Authors
+@using Internship.Blazor.Pages.Authors.DTOs
+@using Internship.Blazor.Pages.Posts.DTOs
+@using Internship.Blazor.Pages.Posts.Services
+@using Internship.Blazor.Pages.Tags
+@using Internship.Blazor.Pages.Tags.DTOs
+@using Internship.Blazor.Pages.Posts.Operations.Creation
+@inject PostsService Service
+@inject TagsService TagsService
+@inject AuthorsService AuthorsService
+<TelerikDialog @bind-Visible="@Visible"
+               Width="1100px"
+               Height="700px"
+               ShowCloseButton="@ShowCloseButton"
+               CloseOnOverlayClick="@CloseOnOverlayClick">
+    <DialogTitle>
+        <TelerikSvgIcon Icon="@SvgIcon.Gears"></TelerikSvgIcon>
+        <span style="margin-left:.5em">Blazor Dialog</span>
+    </DialogTitle>
+    <DialogContent>
+            <TelerikForm
+                Orientation="FormOrientation.Vertical"
+                OnValidSubmit="@HandleValidSubmit"
+                OnInvalidSubmit="@HandleInvalidSubmit"
+                Model="@Post">
+                <FormValidation>
+                    <DataAnnotationsValidator></DataAnnotationsValidator>
+                    <TelerikValidationSummary></TelerikValidationSummary>
+                </FormValidation>
+                <FormItems>
+                    <FormGroup LabelText="Post Information" Columns="2" ColumnSpacing="20px">
+                        <FormItem Field="@nameof(Post.Title)" Class="align-content-xl-stretch" ColSpan="2"
+                                  EditorType="FormEditorType.TextArea" LabelText="Title"></FormItem>
+                        <FormItem LabelText="Tags">
+                            <Template>
+                                <label class="k-label k-form-label">Tags</label>
+                                <TelerikMultiSelect Data="@_tags"
+                                                    TextField="Name"
+                                                    ValueField="Id"
+                                                    @bind-Value="@Post.Tags"
+                                                    ClearButton="true"
+                                                    AutoClose="false"
+                                                    Placeholder="Select tags...">
+                                    <MultiSelectSettings>
+                                        <MultiSelectPopupSettings Height="auto" MaxHeight="200px" MinHeight="75px"/>
+                                    </MultiSelectSettings>
+                                </TelerikMultiSelect>
+                            </Template>
+                        </FormItem>
+
+                        <FormItem LabelText="Author">
+                            <Template>
+                                <label class="k-label k-form-label">Author</label>
+                                <TelerikComboBox Data="@_authors"
+                                                 TextField="Name"
+                                                 ValueField="Id"
+                                                 @bind-Value="@Post.AuthorId"
+                                                 Placeholder="Select an author">
+                                    <ComboBoxSettings>
+                                        <ComboBoxPopupSettings Height="auto" />
+                                    </ComboBoxSettings>
+
+                                </TelerikComboBox>
+                            </Template>
+                        </FormItem>
+                    </FormGroup>
+
+                    <FormItem LabelText="Post Content">
+                        <Template>
+                            <label class="k-label k-form-label">Post Content</label>
+                            <div style="width: 100%; margin: 0 auto;">
+                                <Editor Value="@Post.Content"/>
+                            </div>
+                        </Template>
+                    </FormItem>
+
+                </FormItems>
+                <FormButtons>
+                    <TelerikButton Enabled="_enabled" ButtonType="ButtonType.Submit" ThemeColor="primary">Create
+                    </TelerikButton>
+                    <TelerikButton ThemeColor="secondary">Cancel</TelerikButton>
+                </FormButtons>
+            </TelerikForm>
+    </DialogContent>
+</TelerikDialog>
+
+@code{
+    private bool _enabled = true;
+    [Parameter] public Func<Task>? Refresh { get; set; }
+    private bool ShowCloseButton { get; set; } = true;
+    private bool CloseOnOverlayClick { get; set; } = true;
+    private bool Visible { get; set; }
+    private PostDto Post { get; set; } = new();
+    private List<TagGridDto> _tags = [];
+    private List<AuthorGridDto> _authors = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        _tags = await TagsService.GetTagsAsync();
+        _authors = await AuthorsService.GetAuthorsAsync();
+    }
+
+    
+    public async Task ShowAsync(Guid id)
+    {
+        Post = await Service.GetPostAsync(id);
+        Visible = true;
+        StateHasChanged();
+    }
+
+    private async Task HandleValidSubmit(EditContext arg)
+    {
+        _enabled = false;
+        await Service.UpdatePostAsync(Post.Id, Post);
+        Visible = false;
+    }
+
+    private void HandleInvalidSubmit(EditContext obj)
+    {
+        Post = new PostDto();
+        Visible = false;
+    }
+}
