@@ -1,0 +1,17 @@
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\bin\Debug\net9.0\Internship.Infrastructure.deps.json
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\bin\Debug\net9.0\Internship.Infrastructure.dll
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\bin\Debug\net9.0\Internship.Infrastructure.pdb
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\bin\Debug\net9.0\Internship.Domain.dll
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\bin\Debug\net9.0\Internship.Domain.pdb
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\obj\Debug\net9.0\Internship.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\obj\Debug\net9.0\Internship.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\obj\Debug\net9.0\Internship.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\obj\Debug\net9.0\Internship.Infrastructure.AssemblyInfo.cs
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\obj\Debug\net9.0\Internship.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\obj\Debug\net9.0\Internsh.348B9630.Up2Date
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\obj\Debug\net9.0\Internship.Infrastructure.dll
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\obj\Debug\net9.0\refint\Internship.Infrastructure.dll
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\obj\Debug\net9.0\Internship.Infrastructure.pdb
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\obj\Debug\net9.0\ref\Internship.Infrastructure.dll
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\bin\Debug\net9.0\Internship.Infrastructure.runtimeconfig.json
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Infrastructure\obj\Debug\net9.0\Internship.Infrastructure.genruntimeconfig.cache

@@ -1,0 +1,11 @@
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Domain\bin\Debug\net9.0\Internship.Domain.deps.json
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Domain\bin\Debug\net9.0\Internship.Domain.dll
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Domain\bin\Debug\net9.0\Internship.Domain.pdb
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Domain\obj\Debug\net9.0\Internship.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Domain\obj\Debug\net9.0\Internship.Domain.AssemblyInfoInputs.cache
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Domain\obj\Debug\net9.0\Internship.Domain.AssemblyInfo.cs
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Domain\obj\Debug\net9.0\Internship.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Domain\obj\Debug\net9.0\Internship.Domain.dll
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Domain\obj\Debug\net9.0\refint\Internship.Domain.dll
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Domain\obj\Debug\net9.0\Internship.Domain.pdb
+C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Domain\obj\Debug\net9.0\ref\Internship.Domain.dll

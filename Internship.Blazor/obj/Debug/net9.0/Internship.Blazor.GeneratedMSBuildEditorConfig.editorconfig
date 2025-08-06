@@ -1,0 +1,137 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = Internship.Blazor
+build_property.RootNamespace = Internship.Blazor
+build_property.ProjectDir = C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Blazor\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Personal\Dropbox\PC\Downloads\Internship2\Internship\Internship.Blazor
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Components/ErrorDialog.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xFcnJvckRpYWxvZy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Components/SmcGrid/Components/CardView/SmcGridCardView.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTbWNHcmlkXENvbXBvbmVudHNcQ2FyZFZpZXdcU21jR3JpZENhcmRWaWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Components/SmcGrid/Components/SmcDropdown.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTbWNHcmlkXENvbXBvbmVudHNcU21jRHJvcGRvd24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Components/SmcGrid/Components/SmcGridHeader.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTbWNHcmlkXENvbXBvbmVudHNcU21jR3JpZEhlYWRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Components/SmcGrid/Components/SmcGridToolbar.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTbWNHcmlkXENvbXBvbmVudHNcU21jR3JpZFRvb2xiYXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Components/SmcGrid/Components/TableView/SmcGridTableView.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTbWNHcmlkXENvbXBvbmVudHNcVGFibGVWaWV3XFNtY0dyaWRUYWJsZVZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Components/SmcGrid/Components/ToolbarMenus/SmcToolbarDropdown.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTbWNHcmlkXENvbXBvbmVudHNcVG9vbGJhck1lbnVzXFNtY1Rvb2xiYXJEcm9wZG93bi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Components/SmcGrid/Components/ToolbarMenus/SmcToolbarMenuContainer.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTbWNHcmlkXENvbXBvbmVudHNcVG9vbGJhck1lbnVzXFNtY1Rvb2xiYXJNZW51Q29udGFpbmVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Components/SmcGrid/Components/ToolbarMenus/SmcToolbarMenuItem.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTbWNHcmlkXENvbXBvbmVudHNcVG9vbGJhck1lbnVzXFNtY1Rvb2xiYXJNZW51SXRlbS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Authors/Authors.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aG9yc1xBdXRob3JzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Authors/Operations/Creation/AuthorCreator.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aG9yc1xPcGVyYXRpb25zXENyZWF0aW9uXEF1dGhvckNyZWF0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Authors/Operations/Edition/AuthorEditor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aG9yc1xPcGVyYXRpb25zXEVkaXRpb25cQXV0aG9yRWRpdG9yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Comments/Comments.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbWVudHNcQ29tbWVudHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Comments/Operations/Creation/CommentCreator.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tbWVudHNcT3BlcmF0aW9uc1xDcmVhdGlvblxDb21tZW50Q3JlYXRvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Posts/Operations/Creation/Editor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHNcT3BlcmF0aW9uc1xDcmVhdGlvblxFZGl0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Posts/Operations/Creation/PostCreator.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHNcT3BlcmF0aW9uc1xDcmVhdGlvblxQb3N0Q3JlYXRvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Posts/Operations/Edition/PostEditor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHNcT3BlcmF0aW9uc1xFZGl0aW9uXFBvc3RFZGl0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Posts/Posts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHNcUG9zdHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Tags/Operations/Creation/TagCreator.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFnc1xPcGVyYXRpb25zXENyZWF0aW9uXFRhZ0NyZWF0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Tags/Operations/Edition/TagEditor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFnc1xPcGVyYXRpb25zXEVkaXRpb25cVGFnRWRpdG9yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Pages/Tags/Tags.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGFnc1xUYWdzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Components/Button/SmcButton.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xCdXR0b25cU21jQnV0dG9uLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-yhcih207jc
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Components/SmcGrid/SmcGrid.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTbWNHcmlkXFNtY0dyaWQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-k98yp5p6vg
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-bmo6sma1tc
+
+[C:/Users/Personal/Dropbox/PC/Downloads/Internship2/Internship/Internship.Blazor/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-pq1ttvwdn5
